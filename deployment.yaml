@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: imdb-scraper
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: imdb-scraper
+  template:
+    metadata:
+      labels:
+        app: imdb-scraper
+    spec:
+      containers:
+      - name: imdb-scraper
+        image: ghcr.io/inheritxsolution/imdb_scraper:latest  # Replace with your Docker image tag
+        ports:
+        - containerPort: 8080
+
