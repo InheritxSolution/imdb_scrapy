@@ -7,9 +7,9 @@
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 
+
 class ImdbPipeline:
     def process_item(self, item, spider):
-        return item
-
-
-
+        if spider.name in ["imdb"]:
+            print("item: ", item)
+            return item
